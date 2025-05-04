@@ -1,4 +1,4 @@
-package org.example;
+package quarkus;
 
 import io.quarkus.hibernate.reactive.panache.Panache;
 import io.quarkus.panache.common.Sort;
@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 import java.net.URI;
 import java.util.List;
 
-@Path("/hello")
+@Path("/users")
 @ApplicationScoped
 @Produces("application/json")
 @Consumes("application/json")
@@ -36,7 +36,6 @@ public class UserResource {
     @POST
     public Uni<Response> create(Users user) {
         LOGGER.info("Creating user: {}", user);
-
         return Panache.<Users>withTransaction(user::persist)
                 .onItem().transform(
                         insertedUser -> Response.created(URI.create("/users/" + insertedUser.id)).build()

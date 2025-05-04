@@ -29,7 +29,8 @@ public class HelloVertxResource {
 
     @Inject
     public HelloVertxResource(Vertx vertx) {
-        this.client = WebClient.create(vertx, new WebClientOptions().setDefaultHost("localhost").setDefaultPort(8081));
+        this.client = WebClient.create(vertx,
+                new WebClientOptions().setDefaultHost("localhost").setDefaultPort(8080));
     }
 
     @GET

@@ -1,4 +1,4 @@
-package org.example;
+package quarkus;
 
 import io.quarkus.hibernate.reactive.panache.PanacheEntity;
 import jakarta.persistence.Cacheable;
